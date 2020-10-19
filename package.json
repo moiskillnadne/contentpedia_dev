@@ -1,0 +1,25 @@
+{
+    "name": "contentpedia_client_dev",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server_dev.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/moiskillnadne/contentpedia_dev.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/moiskillnadne/contentpedia_dev/issues"
+    },
+    "homepage": "https://github.com/moiskillnadne/contentpedia_dev#readme",
+    "dependencies": {
+        "axios": "^0.20.0",
+        "bootstrap": "^4.5.3",
+        "express": "^4.17.1"
+    }
+}
