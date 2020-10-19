@@ -1,0 +1,101 @@
+.margin-top25 {
+    margin-top: 25px;
+}
+
+.columns-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 6fr 4fr;
+    margin-top: 55px;
+    grid-gap: 10px;
+    align-items: flex-start;
+}
+
+.column-wrapper-managment {
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-flow: row;
+}
+
+.column {
+    display: grid;
+    min-height: 300px;
+}
+
+.column>h3 {
+    justify-self: center;
+}
+
+.get-column-content {
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* Style for items */
+
+.item {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+}
+
+.item>h5 {
+    margin-top: 5px;
+    padding-top: 7px;
+    margin-left: 20px;
+    margin-right: 142px;
+    color: white;
+}
+
+.item>span {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 4px 6px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.pink-background {
+    background: #ff9ff3;
+}
+
+.green-background {
+    background: #00d2d3;
+}
+
+.blue-background {
+    background: #54a0ff;
+}
+
+.item>div {
+    color: white;
+}
+
+
+/* Style for each separate column */
+
+.get-column {
+    background-color: #1dd1a1;
+    grid-template-rows: 55px 1fr;
+}
+
+.add-column {
+    background-color: #feca57;
+}
+
+.update-column {
+    background-color: #feca57;
+}
+
+.delete-column {
+    background-color: #ff6b6b;
+}
