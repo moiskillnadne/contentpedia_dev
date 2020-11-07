@@ -54,7 +54,7 @@
 
 .item>span {
     position: absolute;
-    top: 5px;
+    bottom: 5px;
     right: 10px;
     padding: 4px 6px;
     border-radius: 10px;
@@ -62,6 +62,13 @@
     font-size: 14px;
     font-weight: 500;
     font-family: sans-serif;
+    cursor: default;
+}
+
+.item>button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 
 .pink-background {
@@ -98,4 +105,23 @@
 
 .delete-column {
     background-color: #ff6b6b;
+}
+
+.white-bg {
+    background: white;
+}
+
+
+/* For tags */
+
+.favorites-bg-color {
+    background-color: rgba(0, 210, 211, .3) !important;
+}
+
+.mention-bg-color {
+    background-color: rgba(131, 149, 167, .3) !important;
+}
+
+.not-favorites-bg-color {
+    background-color: rgba(255, 159, 67, .3) !important;
 }

@@ -32,6 +32,14 @@ function createHtmlItem(item) {
         title.innerHTML = formattedTitle
     }
 
+    let button = document.createElement('button');
+    button.innerHTML = "Delete"
+    button.classList.add('btn');
+    button.classList.add('btn-danger');
+    button.classList.add('btn-sm');
+    button.dataset.itemId = item._id
+    button.addEventListener('click', deleteItemButton)
+
     let span = document.createElement('span');
     span.innerHTML = item.channel.name ? item.channel.name : 'Канал не выбран';
     if (item.channel.name === 'vdud') {
@@ -47,6 +55,7 @@ function createHtmlItem(item) {
 
     wrapDiv.appendChild(title);
     wrapDiv.appendChild(span);
+    wrapDiv.appendChild(button);
     wrapDiv.appendChild(innerDiv);
 
     itemsList.appendChild(wrapDiv);
@@ -57,9 +66,25 @@ async function updateList(data) {
         itemsList.removeChild(itemsList.firstElementChild)
     }
 
-    data.forEach(item => {
-        createHtmlItem(item)
-    });
+    if (data) {
+        data.forEach(item => {
+            createHtmlItem(item)
+        });
+    }
+}
+
+function deleteItemButton(e) {
+    const id = e.target.dataset.itemId;
+
+    axios({
+            method: "DELETE",
+            url: `${prodURL}/api/db/${id}`,
+        })
+        .then(result => {
+            console.log(result)
+            getData();
+        })
+        .catch(err => console.log(err))
 }
 
 
@@ -134,11 +159,22 @@ const listOfVideoItems = document.getElementById('list-of-video-items');
 const formVideoContentType = document.getElementById('form-video-content-type');
 const formVideoContentTitle = document.getElementById('form-video-content-title');
 const formVideoTimecode = document.getElementById('form-video-timecode');
+const formVideoSource = document.getElementById('form-video-source');
+const formVideoComments = document.getElementById('form-video-comments');
 const formButtonAddVideoItem = document.getElementById('form-button-add-video-item');
+
+// Tags
+const formVideoFavoritesTag = document.getElementById('video-favorites');
+const formVideoMentionTag = document.getElementById('video-mention');
+const formVideoNotFavoritesTag = document.getElementById('video-notFavorites');
+
 let videoItem = {
     type: '',
     title: '',
-    timecode: ''
+    timecode: '',
+    url: '',
+    comments: '',
+    tags: []
 };
 formVideoContentType.addEventListener('change', (e) => {
     videoItem.type = e.target.value;
@@ -149,24 +185,49 @@ formVideoContentTitle.addEventListener('change', (e) => {
 formVideoTimecode.addEventListener('change', (e) => {
     videoItem.timecode = e.target.value;
 })
+formVideoSource.addEventListener('change', (e) => {
+    videoItem.url = e.target.value;
+})
+formVideoComments.addEventListener('change', (e) => {
+    videoItem.comments = e.target.value;
+})
+formVideoFavoritesTag.addEventListener('change', (e) => {
+    tagsManager(e.target, videoItem.tags);
+})
+formVideoMentionTag.addEventListener('change', (e) => {
+    tagsManager(e.target, videoItem.tags);
+})
+formVideoNotFavoritesTag.addEventListener('change', (e) => {
+    tagsManager(e.target, videoItem.tags);
+})
 formButtonAddVideoItem.addEventListener('click', () => {
     createContentItem(
         videoItem.type,
         videoItem.title,
         videoItem.timecode,
+        videoItem.url,
+        videoItem.comments,
+        videoItem.tags[0],
         listOfVideoItems
     );
     body.guest.recommendation.videoContent.push(
         JSON.parse(JSON.stringify(videoItem))
     );
-    console.log(body)
 
     videoItem.type = '';
     videoItem.title = '';
     videoItem.timecode = '';
+    videoItem.url = '';
+    videoItem.comments = '';
+    videoItem.tags = [];
     formVideoContentType.value = '';
     formVideoContentTitle.value = '';
     formVideoTimecode.value = '';
+    formVideoSource.value = '';
+    formVideoComments.value = '';
+    formVideoFavoritesTag.checked = false;
+    formVideoMentionTag.checked = false;
+    formVideoNotFavoritesTag.checked = false;
 });
 
 
@@ -175,11 +236,21 @@ const listOfAudioItems = document.getElementById('list-of-audio-items');
 const formAudioContentType = document.getElementById('form-audio-content-type');
 const formAudioContentTitle = document.getElementById('form-audio-content-title');
 const formAudioTimecode = document.getElementById('form-audio-content-timecode');
+const formAudioSource = document.getElementById('form-audio-source');
+const formAudioComments = document.getElementById('form-audio-comments');
 const formButtonAddAudioItem = document.getElementById('form-button-add-audio-item');
+
+// Tags
+const formAudioFavoritesTag = document.getElementById('audio-favorites');
+const formAudioMentionTag = document.getElementById('audio-mention');
+const formAudioNotFavoritesTag = document.getElementById('audio-notFavorites');
 let audioItem = {
     type: '',
     title: '',
-    timecode: ''
+    timecode: '',
+    url: '',
+    comments: '',
+    tags: []
 };
 formAudioContentType.addEventListener('change', (e) => {
     audioItem.type = e.target.value;
@@ -190,24 +261,49 @@ formAudioContentTitle.addEventListener('change', (e) => {
 formAudioTimecode.addEventListener('change', (e) => {
     audioItem.timecode = e.target.value;
 })
+formAudioSource.addEventListener('change', (e) => {
+    audioItem.url = e.target.value;
+})
+formAudioComments.addEventListener('change', (e) => {
+    audioItem.comments = e.target.value;
+})
+formAudioFavoritesTag.addEventListener('change', (e) => {
+    tagsManager(e.target, audioItem.tags);
+})
+formAudioMentionTag.addEventListener('change', (e) => {
+    tagsManager(e.target, audioItem.tags);
+})
+formAudioNotFavoritesTag.addEventListener('change', (e) => {
+    tagsManager(e.target, audioItem.tags);
+})
 formButtonAddAudioItem.addEventListener('click', () => {
     createContentItem(
         audioItem.type,
         audioItem.title,
         audioItem.timecode,
+        audioItem.url,
+        audioItem.comments,
+        audioItem.tags[0],
         listOfAudioItems
     );
     body.guest.recommendation.audioContent.push(
         JSON.parse(JSON.stringify(audioItem))
     );
-    console.log(body)
 
     audioItem.type = '';
     audioItem.title = '';
     audioItem.timecode = '';
+    audioItem.url = '';
+    audioItem.comments = '';
+    audioItem.tags = [];
     formAudioContentType.value = '';
     formAudioContentTitle.value = '';
     formAudioTimecode.value = '';
+    formAudioSource.value = '';
+    formAudioComments.value = '';
+    formAudioFavoritesTag.checked = false;
+    formAudioMentionTag.checked = false;
+    formAudioNotFavoritesTag.checked = false;
 });
 
 // Getting and fill out TEXT content recommendation data
@@ -215,11 +311,21 @@ const listOfTextItems = document.getElementById('list-of-text-items');
 const formTextContentType = document.getElementById('form-text-content-type');
 const formTextContentTitle = document.getElementById('form-text-content-title');
 const formTextTimecode = document.getElementById('form-text-content-timecode');
+const formTextSource = document.getElementById('form-text-source');
+const formTextComments = document.getElementById('form-text-comments');
 const formButtonAddTextItem = document.getElementById('form-button-add-text-item');
+
+// Tags
+const formTextFavoritesTag = document.getElementById('text-favorites');
+const formTextMentionTag = document.getElementById('text-mention');
+const formTextNotFavoritesTag = document.getElementById('text-notFavorites');
 let textItem = {
     type: '',
     title: '',
-    timecode: ''
+    timecode: '',
+    url: '',
+    comments: '',
+    tags: []
 };
 formTextContentType.addEventListener('change', (e) => {
     textItem.type = e.target.value;
@@ -230,24 +336,49 @@ formTextContentTitle.addEventListener('change', (e) => {
 formTextTimecode.addEventListener('change', (e) => {
     textItem.timecode = e.target.value;
 })
+formTextSource.addEventListener('change', (e) => {
+    textItem.url = e.target.value;
+})
+formTextComments.addEventListener('change', (e) => {
+    textItem.comments = e.target.value;
+})
+formTextFavoritesTag.addEventListener('change', (e) => {
+    tagsManager(e.target, textItem.tags);
+})
+formTextMentionTag.addEventListener('change', (e) => {
+    tagsManager(e.target, textItem.tags);
+})
+formTextNotFavoritesTag.addEventListener('change', (e) => {
+    tagsManager(e.target, textItem.tags);
+})
 formButtonAddTextItem.addEventListener('click', () => {
     createContentItem(
         textItem.type,
         textItem.title,
         textItem.timecode,
+        textItem.url,
+        textItem.comments,
+        textItem.tags[0],
         listOfTextItems
     );
     body.guest.recommendation.textContent.push(
         JSON.parse(JSON.stringify(textItem))
     );
-    console.log(body)
 
     textItem.type = '';
     textItem.title = '';
     textItem.timecode = '';
+    textItem.url = '';
+    textItem.comments = '';
+    textItem.tags = [];
     formTextContentType.value = '';
     formTextContentTitle.value = '';
     formTextTimecode.value = '';
+    formTextSource.value = '';
+    formTextComments.value = '';
+    formTextFavoritesTag.checked = false;
+    formTextMentionTag.checked = false;
+    formTextNotFavoritesTag.checked = false;
 });
 
 const textAreaDescription = document.getElementById('form-additional-description');
@@ -258,7 +389,6 @@ textAreaDescription.addEventListener('change', (e) => {
 const addItemToDBButton = document.getElementById('add-item-to-database-button');
 addItemToDBButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(body);
 
     axios({
             method: 'POST',
@@ -266,7 +396,6 @@ addItemToDBButton.addEventListener('click', (e) => {
             data: body
         })
         .then(result => {
-            console.log(result)
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -287,7 +416,7 @@ addItemToDBButton.addEventListener('click', (e) => {
 
 
 // Creating small item for content list
-function createContentItem(type, title, timecode, list) {
+function createContentItem(type, title, timecode, url, comments, tag, list) {
     let li = document.createElement('li');
     let div = document.createElement('div');
     let spanType = document.createElement('span');
@@ -311,6 +440,19 @@ function createContentItem(type, title, timecode, list) {
 
     li.appendChild(div);
     li.classList.add('list-group-item');
+    switch (tag) {
+        case "favorites":
+            li.classList.add('favorites-bg-color');
+            break;
+        case "mention":
+            li.classList.add('mention-bg-color');
+            break;
+        case "notFavorites":
+            li.classList.add('not-favorites-bg-color');
+            break;
+        default:
+            break;
+    }
 
     list.appendChild(li);
 }
@@ -362,4 +504,16 @@ function showFailed(time, text) {
 
 function hideFailed(item) {
     item.classList.remove('show');
+}
+
+function tagsManager(target, tags) {
+    if (target.checked) {
+        tags.push(target.value)
+    } else {
+        tags.filter((tag, index) => {
+            if (tag === target.value) {
+                tags.splice(index, 1)
+            }
+        })
+    }
 }
