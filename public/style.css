@@ -87,6 +87,18 @@
     color: white;
 }
 
+.remove-btn-for-item {
+    width: 35px !important;
+    height: 35px;
+    align-self: center;
+    justify-self: center;
+    border: none;
+    outline: none;
+    padding: 0px !important;
+    background-color: rgba(238, 82, 83, 1.0);
+    color: white;
+}
+
 
 /* Style for each separate column */
 
