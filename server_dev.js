@@ -1,14 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.use(express.static(__dirname + "/public"))
+const PORT = 5555;
+app.use(express.static(__dirname + "/public"));
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html", {
-        root: __dirname
-    })
-})
+        root: __dirname,
+    });
+});
 
-app.listen(80, () => {
-    console.log('Server was launched succesfully')
-})
+app.listen(PORT, () => {
+    console.log("Server was launched succesfully");
+});

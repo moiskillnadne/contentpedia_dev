@@ -2,6 +2,12 @@
     margin-top: 25px;
 }
 
+.main-title {
+    font-family: 'AlegreyaSansSC';
+    font-weight: 700;
+    font-style: normal;
+}
+
 .columns-wrapper {
     display: grid;
     grid-auto-flow: column;
@@ -15,6 +21,12 @@
     display: grid;
     grid-gap: 10px;
     grid-auto-flow: row;
+}
+
+.column-title {
+    font-family: 'AlegreyaSansSC';
+    font-weight: 500;
+    font-style: normal;
 }
 
 .column {
@@ -34,6 +46,12 @@
 
 
 /* Style for items */
+
+.type-item-title {
+    font-family: 'AlegreyaSansSC';
+    font-weight: 500;
+    font-style: italic;
+}
 
 .item {
     position: relative;
@@ -85,6 +103,7 @@
 
 .item>div {
     color: white;
+    margin-left: 20px;
 }
 
 .remove-btn-for-item {

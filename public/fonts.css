@@ -1,0 +1,78 @@
+/* Custom Fonts */
+
+
+/* ThinItalic */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-ThinItalic/AlegreyaSansSC-ThinItalic.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-ThinItalic/AlegreyaSansSC-ThinItalic.woff') format('woff'), url('./fonts/AlegreyaSansSC-ThinItalic/AlegreyaSansSC-ThinItalic.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-ThinItalic/AlegreyaSansSC-ThinItalic.svg') format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
+
+
+/* Thin */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-Thin/AlegreyaSansSC-Thin.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-Thin/AlegreyaSansSC-Thin.woff') format('woff'), url('./fonts/AlegreyaSansSC-Thin/AlegreyaSansSC-Thin.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-Thin/AlegreyaSansSC-Thin.svg') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+
+/* MediumItalic */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-MediumItalic/AlegreyaSansSC-MediumItalic.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-MediumItalic/AlegreyaSansSC-MediumItalic.woff') format('woff'), url('./fonts/AlegreyaSansSC-MediumItalic/AlegreyaSansSC-MediumItalic.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-MediumItalic/AlegreyaSansSC-MediumItalic.svg') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+
+/* Medium */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-Medium/AlegreyaSansSC-Medium.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-Medium/AlegreyaSansSC-Medium.woff') format('woff'), url('./fonts/AlegreyaSansSC-Medium/AlegreyaSansSC-Medium.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-Medium/AlegreyaSansSC-Medium.svg') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+/* ExtraBold */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-ExtraBold/AlegreyaSansSC-ExtraBold.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-ExtraBold/AlegreyaSansSC-ExtraBold.woff') format('woff'), url('./fonts/AlegreyaSansSC-ExtraBold/AlegreyaSansSC-ExtraBold.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-ExtraBold/AlegreyaSansSC-ExtraBold.svg') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+/* BoldItalic */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-BoldItalic/AlegreyaSansSC-BoldItalic.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-BoldItalic/AlegreyaSansSC-BoldItalic.woff') format('woff'), url('./fonts/AlegreyaSansSC-BoldItalic/AlegreyaSansSC-BoldItalic.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-BoldItalic/AlegreyaSansSC-BoldItalic.svg') format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+/* Bold */
+
+@font-face {
+    font-family: 'AlegreyaSansSC';
+    src: url('./fonts/AlegreyaSansSC-Bold/AlegreyaSansSC-Bold.eot');
+    src: local('☺'), url('./fonts/AlegreyaSansSC-Bold/AlegreyaSansSC-Bold.woff') format('woff'), url('./fonts/AlegreyaSansSC-Bold/AlegreyaSansSC-Bold.ttf') format('truetype'), url('./fonts/AlegreyaSansSC-Bold/AlegreyaSansSC-Bold.svg') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}

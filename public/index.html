@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./fonts.css">
     <link rel="stylesheet" href="./style.css">
     <title>ContentPedia Developers</title>
 
@@ -18,25 +19,25 @@
         </div>
         <div class="alert alert-danger margin-top25 fade" role="alert" id="failed-msg">
         </div>
-        <h1>ContentPedia for Developers</h1>
+        <h1 class="main-title">ContentPedia for Developers</h1>
     </div>
 
     <div class="container">
         <div class="columns-wrapper">
             <div class="column get-column">
-                <h3>All items</h3>
+                <h3 class="column-title">All items</h3>
                 <ol class="get-column-content">
                 </ol>
             </div>
 
             <div class="column-wrapper-managment">
                 <div class="column add-column">
-                    <h3>Add item</h3>
+                    <h3 class="column-title">Add item</h3>
 
                     <div class="container">
                         <form id="add-item-form">
 
-                            <h5 class="text-center margin-top25">Channel block</h5>
+                            <h5 class="text-center margin-top25 type-item-title">Channel block</h5>
                             <div class="form-group">
                                 <label for="form-channel-name">Choose the channel</label>
                                 <select class="form-control" id="form-channel-name">
@@ -48,7 +49,7 @@
 
 
                             <!-- Video block start -->
-                            <h5 class="text-center margin-top25">Video block</h5>
+                            <h5 class="text-center margin-top25 type-item-title">Video block</h5>
                             <div class="form-group">
                                 <label for="form-video-link">Video link</label>
                                 <input type="text" class="form-control" placeholder="Insert link on the video" id="form-video-link">
@@ -67,7 +68,7 @@
 
 
                             <!-- Guest block start -->
-                            <h5 class="text-center margin-top25">Guest block</h5>
+                            <h5 class="text-center margin-top25 type-item-title">Guest block</h5>
                             <div class="form-group">
                                 <label for="form-guest-name">Guest name</label>
                                 <input type="text" class="form-control" id="form-guest-name" placeholder="Example: Victor Ryabkov">
@@ -86,7 +87,7 @@
 
 
                             <!-- Video block start -->
-                            <h5 class="text-center margin-top25">Video block</h5>
+                            <h5 class="text-center margin-top25 type-item-title">Video block</h5>
                             <ul class="list-group white-bg" id="list-of-video-items">
 
                             </ul>
@@ -146,7 +147,7 @@
 
 
                             <!-- Audio block Start -->
-                            <h5 class="text-center margin-top25">Audio block</h5>
+                            <h5 class="text-center margin-top25 type-item-title">Audio block</h5>
                             <ul class="list-group white-bg" id="list-of-audio-items">
                             </ul>
                             <div class="margin-top25"></div>
@@ -154,7 +155,8 @@
                             <div class="form-group">
                                 <label for="form-audio-content-type">Audio content type</label>
                                 <input type="text" class="form-control" id="form-audio-content-type">
-                                <small id="emailHelp" class="form-text text-muted">Example: Artist, Album, Podcast, Book
+                                <small id="emailHelp" class="form-text text-muted">Example: Artist,
+                                    Album, Podcast, Book
                                     and etc.</small>
                             </div>
 
@@ -205,7 +207,7 @@
 
 
                             <!-- Text block start -->
-                            <h5 class="text-center margin-top25">Text block</h5>
+                            <h5 class="text-center margin-top25 type-item-title">Text block</h5>
                             <ul class="list-group white-bg" id="list-of-text-items">
                             </ul>
                             <div class="margin-top25"></div>
@@ -213,7 +215,8 @@
                             <div class="form-group">
                                 <label for="form-text-content-type">Text content type</label>
                                 <input type="text" class="form-control" id="form-text-content-type">
-                                <small id="emailHelp" class="form-text text-muted">Example: Book, Magazine, Article and
+                                <small id="emailHelp" class="form-text text-muted">Example: Book,
+                                    Magazine, Article and
                                     etc.</small>
                             </div>
 
@@ -263,7 +266,7 @@
                             <!-- Text block end -->
 
 
-                            <h5 class="text-center margin-top25">General</h5>
+                            <h5 class="text-center margin-top25 type-item-title">General</h5>
                             <div class="form-group">
                                 <label for="form-additional-description">Additional description</label>
                                 <textarea class="form-control" id="form-additional-description" rows="4"></textarea>
@@ -280,12 +283,12 @@
                 </div>
 
                 <div class="column update-column">
-                    <h3>Update item</h3>
+                    <h3 class="column-title">Update item</h3>
                     <div class=""></div>
                 </div>
 
                 <div class="column delete-column">
-                    <h3>Delete item</h3>
+                    <h3 class="column-title">Delete item</h3>
                     <div class=""></div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 const url = "http://localhost:6587";
-const prodURL = "http://172.105.77.52:6587";
+const prodURL = "https://dev.contentpedia.ru";
 const itemsList = document.querySelector(".get-column-content");
 
 window.onload = () => {
