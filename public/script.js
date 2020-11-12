@@ -23,6 +23,11 @@ function createHtmlItem(item) {
     let wrapDiv = document.createElement("li");
     wrapDiv.classList.add("item");
 
+    let img = document.createElement('img');
+    img.src = item.video.previewUrl;
+    img.classList.add('item-img-bg');
+    wrapDiv.appendChild(img);
+
     let title = document.createElement("h5");
     const formattedTitle = item.video.name ?
         item.video.name.substr(0, 41) :
@@ -137,6 +142,8 @@ formVideoTitle.addEventListener("change", (e) => {
 });
 formVideoPreviewLink.addEventListener("change", (e) => {
     body.video.previewUrl = e.target.value;
+    console.log(body.video)
+
 });
 
 // Getting guest data
@@ -480,14 +487,18 @@ function assignColor(tag, li) {
 function formCleaning() {
     addItemForm.reset();
 
-    while (listOfVideoItems.firstElementChild) {
-        listOfVideoItems.removeChild(listOfVideoItems.firstElementChild);
+    let videoList = document.querySelector(`#list-of-video-items`);
+    let audioList = document.querySelector(`#list-of-audio-items`);
+    let textList = document.querySelector(`#list-of-text-items`);
+
+    while (videoList.firstElementChild) {
+        videoList.removeChild(videoList.firstElementChild);
     }
-    while (listOfAudioItems.firstElementChild) {
-        listOfAudioItems.removeChild(listOfAudioItems.firstElementChild);
+    while (audioList.firstElementChild) {
+        audioList.removeChild(audioList.firstElementChild);
     }
-    while (listOfTextItems.firstElementChild) {
-        listOfTextItems.removeChild(listOfTextItems.firstElementChild);
+    while (textList.firstElementChild) {
+        textList.removeChild(textList.firstElementChild);
     }
 }
 

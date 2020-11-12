@@ -60,6 +60,7 @@
     height: 150px;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+    margin-top: 10px;
 }
 
 .item>h5 {
@@ -68,6 +69,8 @@
     margin-left: 20px;
     margin-right: 142px;
     color: white;
+    z-index: 2;
+    position: absolute;
 }
 
 .item>span {
@@ -81,6 +84,24 @@
     font-weight: 500;
     font-family: sans-serif;
     cursor: default;
+}
+
+.item>div {
+    color: white;
+    margin-left: 20px;
+    z-index: 2;
+    position: absolute;
+    margin-top: 40px;
+}
+
+.item-img-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: auto;
+    opacity: 0.5;
+    z-index: 1;
 }
 
 .item>button {
@@ -99,11 +120,6 @@
 
 .blue-background {
     background: #54a0ff;
-}
-
-.item>div {
-    color: white;
-    margin-left: 20px;
 }
 
 .remove-btn-for-item {
